@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b3028">
+  <meta name="description" content="OFF — Campo Conectado. Operações, evidências e inteligência territorial.">
+  <title>OFF | Campo Conectado</title>
+
+  <style>
+    :root {
+      --verde: #176b4d;
+      --verde-escuro: #0b3028;
+      --verde-claro: #dff5e9;
+      --grafite: #1f2937;
+      --cinza: #64748b;
+      --fundo: #f4f7f5;
+      --branco: #ffffff;
+      --borda: #e2e8e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--grafite);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topo {
+      background: var(--verde-escuro);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      color: #ffffff;
+    }
+
+    .marca-texto strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .marca-texto span {
+      font-size: 11px;
+      color: #b7d9cc;
+    }
+
+    .menu {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    .menu a:hover {
+      color: #7ee0b4;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b3028, #176b4d);
+      color: white;
+      padding: 65px 7% 75px;
+    }
+
+    .hero-conteudo {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #4b8d73;
+      border-radius: 30px;
+      color: #c5f5df;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #d2e8df;
+      font-size: 17px;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .botao {
+      display: inline-block;
+      background: #ffffff;
+      color: var(--verde-escuro);
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .botao:hover {
+      background: #dff5e9;
+      transform: translateY(-2px);
+    }
+
+    .painel-hero {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .painel-hero h3 {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .indicador {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 13px;
+    }
+
+    .indicador:last-child {
+      border-bottom: none;
+    }
+
+    .indicador span {
+      color: #c5f5df;
+    }
+
+    .secao {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 7%;
+    }
+
+    .secao-titulo {
+      margin-bottom: 30px;
+    }
+
+    .secao-titulo small {
+      color: var(--verde);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .secao-titulo h2 {
+      font-size: 30px;
+      margin: 8px 0;
+      letter-spacing: -1px;
+    }
+
+    .secao-titulo p {
+      color: var(--cinza);
+      max-width: 650px;
+    }
+
+    .perfis {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .perfil {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 12px;
+      padding: 20px 15px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .perfil:hover {
+      border-color: #7ab99b;
+      transform: translateY(-3px);
+    }
+
+    .perfil .icone {
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .perfil h3 {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .perfil p {
+      color: var(--cinza);
+      font-size: 12px;
+    }
+
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .modulo {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .modulo .icone {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .modulo h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .modulo p {
+      font-size: 13px;
+      color: var(--cinza);
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 17px;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .fluxo {
+      background: #e8f2ed;
+      padding: 50px 7%;
+    }
+
+    .fluxo-conteudo {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .etapas {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .etapa {
+      background: white;
+      padding: 18px;
+      border-radius: 10px;
+      border: 1px solid #d5e5dc;
+    }
+
+    .etapa strong {
+      display: block;
+      color: var(--verde);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .etapa span {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .offline {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 7%;
+    }
+
+    .offline-card {
+      background: var(--verde-escuro);
+      color: white;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .offline-card h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .offline-card p {
+      color: #c5ddd2;
+      font-size: 14px;
+      max-width: 650px;
+    }
+
+    footer {
+      background: #10251f;
+      color: #b7d0c5;
+      padding: 25px 7%;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      .hero-conteudo {
+        grid-template-columns: 1fr;
+      }
+
+      .perfis {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .modulos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .etapas {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topo {
+        padding: 16px 5%;
+      }
+
+      .menu {
+        gap: 13px;
+      }
+
+      .hero {
+        padding: 45px 5%;
+      }
+
+      .secao {
+        padding: 40px 5%;
+      }
+
+      .perfis,
+      .modulos,
+      .etapas {
+        grid-template-columns: 1fr;
+      }
+
+      .secao-titulo h2 {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topo">
+    <a class="marca" href="#">
+      <div class="logo">OFF</div>
+      <div class="marca-texto">
+        <strong>CAMPO CONECTADO</strong>
+        <span>DECISÕES QUE GERAM VALOR</span>
+      </div>
+    </a>
+
+    <nav class="menu">
+      <a href="#perfis">Pessoas</a>
+      <a href="#modulos">Plataforma</a>
+      <a href="#offline">Offline</a>
+      <a href="#sobre">Sobre o OFF</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-conteudo">
+        <div>
+          <span class="etiqueta">OPERAÇÃO • TERRITÓRIO • PESSOAS</span>
+
+          <h1>Campo conectado.<br>Decisões com valor.</h1>
+
+          <p>
+            O OFF conecta pessoas, operações, informações e evidências
+            para transformar atividades de campo em decisões mais
+            eficientes, seguras e inteligentes.
+          </p>
+
+          <a class="botao" href="#modulos">Conheça a plataforma ↓</a>
+        </div>
+
+        <div class="painel-hero">
+          <h3>Visão da plataforma</h3>
+
+          <div class="indicador">
+            Operações de campo
+            <span>Conectadas</span>
+          </div>
+
+          <div class="indicador">
+            Dados e evidências
+            <span>Organizados</span>
+          </div>
+
+          <div class="indicador">
+            Inteligência territorial
+            <span>Integrada</span>
+          </div>
+
+          <div class="indicador">
+            Continuidade offline
+            <span>Prioridade OFF</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="perfis">
+      <div class="secao-titulo">
+        <small>Uma plataforma, diferentes pessoas</small>
+        <h2>Quem utiliza o OFF?</h2>
+        <p>
+          Cada perfil acessa as informações e funções necessárias
+          para realizar seu trabalho.
+        </p>
+      </div>
+
+      <div class="perfis">
+        <div class="perfil">
+          <div class="icone">🚚</div>
+          <h3>Motorista</h3>
+          <p>Rotas, coletas e ocorrências</p>
+        </div>
+
+        <div class="perfil">
+          <div class="icone">🌾</div>
+          <h3>Produtor</h3>
+          <p>Acompanhamento da propriedade</p>
+        </div>
+
+        <div class="perfil">
+          <div class="icone">🧑‍🔬</div>
+          <h3>Técnico</h3>
+          <p>Visitas, análises e evidências</p>
+        </div>
+
+        <div class="perfil">
+          <div class="icone">📊</div>
+          <h3>Gestor</h3>
+          <p>Indicadores e decisões</p>
+        </div>
+
+        <div class="perfil">
+          <div class="icone">🏛️</div>
+          <h3>Órgão público</h3>
+          <p>Território e inteligência</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="modulos">
+      <div class="secao-titulo">
+        <small>Ecossistema OFF</small>
+        <h2>Módulos conectados</h2>
+        <p>
+          Uma estrutura preparada para integrar diferentes operações
+          sem criar plataformas isoladas.
+        </p>
+      </div>
+
+      <div class="modulos">
+        <article class="modulo">
+          <div class="icone">📋</div>
+          <h3>Operações</h3>
+          <p>Registros, atividades, rotas e acompanhamento de campo.</p>
+          <span class="status">Módulo da plataforma</span>
+        </article>
+
+        <article class="modulo">
+          <div class="icone">📍</div>
+          <h3>Inteligência territorial</h3>
+          <p>Mapas, ocorrências, localização e contexto do território.</p>
+          <span class="status">Módulo da plataforma</span>
+        </article>
+
+        <article class="modulo">
+          <div class="icone">🥛</div>
+          <h3>Rastreabilidade do leite</h3>
+          <p>Produtores, propriedades, tanques, coletas e qualidade.</p>
+          <span class="status">CPSI Toledo</span>
+        </article>
+
+        <article class="modulo">
+          <div class="icone">📦</div>
+          <h3>OFF-Vendas</h3>
+          <p>Catálogo, clientes, vendas e propostas em campo.</p>
+          <span class="status">Módulo da plataforma</span>
+        </article>
+
+        <article class="modulo">
+          <div class="icone">🛡️</div>
+          <h3>Dados e evidências</h3>
+          <p>Histórico, registros, documentos e rastreabilidade.</p>
+          <span class="status">Base comum</span>
+        </article>
+
+        <article class="modulo">
+          <div class="icone">🔔</div>
+          <h3>Comunicação</h3>
+          <p>Alertas, orientações e informações para os envolvidos.</p>
+          <span class="status">Base comum</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="fluxo">
+      <div class="fluxo-conteudo">
+        <div class="secao-titulo">
+          <small>O método OFF</small>
+          <h2>Da operação à decisão</h2>
+          <p>
+            O OFF organiza o trabalho em um ciclo contínuo
+            de informação e acompanhamento.
+          </p>
+        </div>
+
+        <div class="etapas">
+          <div class="etapa">
+            <strong>01</strong>
+            <span>Registra</span>
+          </div>
+
+          <div class="etapa">
+            <strong>02</strong>
+            <span>Analisa</span>
+          </div>
+
+          <div class="etapa">
+            <strong>03</strong>
+            <span>Informa</span>
+          </div>
+
+          <div class="etapa">
+            <strong>04</strong>
+            <span>Orienta</span>
+          </div>
+
+          <div class="etapa">
+            <strong>05</strong>
+            <span>Acompanha</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="offline" id="offline">
+      <div class="offline-card">
+        <div>
+          <h2>O campo não pode parar.</h2>
+          <p>
+            O OFF é concebido para manter a operação funcionando
+            mesmo em locais sem conexão. Os registros podem ser
+            armazenados localmente e sincronizados quando a internet
+            estiver disponível.
+          </p>
+        </div>
+
+        <a class="botao" href="#sobre">Conheça o OFF</a>
+      </div>
+    </section>
+
+    <section class="secao" id="sobre">
+      <div class="secao-titulo">
+        <small>Sobre a plataforma</small>
+        <h2>OFF — Campo Conectado</h2>
+        <p>
+          Uma plataforma de operações, evidências e inteligência
+          territorial, desenvolvida para aproximar pessoas,
+          atividades e decisões.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>OFF</strong> — Campo Conectado<br>
+    Decisões que Geram Valor<br>
+    <span>© 2026 OFF Plataforma</span>
+  </footer>
+
+</body>
+</html>
