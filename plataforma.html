@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b3028">
+  <meta name="description" content="Conheça a plataforma OFF — Campo Conectado.">
+  <title>Plataforma | OFF</title>
+
+  <style>
+    :root {
+      --verde: #176b4d;
+      --verde-escuro: #0b3028;
+      --verde-claro: #dff5e9;
+      --grafite: #1f2937;
+      --cinza: #64748b;
+      --fundo: #f4f7f5;
+      --branco: #ffffff;
+      --borda: #e2e8e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fundo);
+      color: var(--grafite);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: var(--verde-escuro);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+
+    .marca-texto strong {
+      display: block;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .marca-texto span {
+      font-size: 11px;
+      color: #b7d9cc;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      color: #7ee0b4;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b3028, #176b4d);
+      color: white;
+      padding: 75px 7%;
+    }
+
+    .hero-conteudo {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #4b8d73;
+      border-radius: 30px;
+      color: #c5f5df;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      max-width: 800px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #d2e8df;
+      font-size: 17px;
+    }
+
+    .secao {
+      max-width: 1100px;
+      margin: auto;
+      padding: 55px 7%;
+    }
+
+    .titulo {
+      margin-bottom: 30px;
+    }
+
+    .titulo small {
+      color: var(--verde);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .titulo h2 {
+      font-size: 30px;
+      letter-spacing: -1px;
+      margin: 8px 0;
+    }
+
+    .titulo p {
+      color: var(--cinza);
+      max-width: 700px;
+    }
+
+    .principios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .card .icone {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--cinza);
+      font-size: 14px;
+    }
+
+    .camadas {
+      background: #e8f2ed;
+      padding: 55px 7%;
+    }
+
+    .camadas-conteudo {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .camada {
+      background: white;
+      border: 1px solid #d5e5dc;
+      border-radius: 10px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .numero {
+      background: var(--verde-claro);
+      color: var(--verde);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .camada h3 {
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .camada p {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .modulos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .modulo {
+      background: white;
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .modulo h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .modulo p {
+      color: var(--cinza);
+      font-size: 13px;
+    }
+
+    .modulo span {
+      display: inline-block;
+      margin-top: 15px;
+      background: var(--verde-claro);
+      color: var(--verde);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .destaque {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 7%;
+    }
+
+    .destaque-card {
+      background: var(--verde-escuro);
+      color: white;
+      padding: 35px;
+      border-radius: 16px;
+    }
+
+    .destaque-card h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .destaque-card p {
+      color: #c5ddd2;
+      max-width: 750px;
+      margin-bottom: 22px;
+    }
+
+    .botao {
+      display: inline-block;
+      background: white;
+      color: var(--verde-escuro);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .botao:hover {
+      background: var(--verde-claro);
+    }
+
+    footer {
+      background: #10251f;
+      color: #b7d0c5;
+      text-align: center;
+      padding: 25px 7%;
+      font-size: 12px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 800px) {
+      .principios,
+      .modulos {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      header {
+        padding: 16px 5%;
+      }
+
+      nav {
+        gap: 13px;
+      }
+
+      .hero {
+        padding: 50px 5%;
+      }
+
+      .secao {
+        padding: 40px 5%;
+      }
+
+      .principios,
+      .modulos {
+        grid-template-columns: 1fr;
+      }
+
+      .titulo h2 {
+        font-size: 25px;
+      }
+
+      .camada {
+        align-items: flex-start;
+      }
+
+      .destaque-card {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a class="marca" href="index.html">
+      <div class="logo">OFF</div>
+      <div class="marca-texto">
+        <strong>CAMPO CONECTADO</strong>
+        <span>DECISÕES QUE GERAM VALOR</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#offline">Offline</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-conteudo">
+        <span class="etiqueta">CONHEÇA A PLATAFORMA</span>
+
+        <h1>Uma plataforma conectada ao trabalho real.</h1>
+
+        <p>
+          O OFF é uma plataforma de operações, evidências e
+          inteligência territorial. Sua estrutura conecta pessoas,
+          atividades e informações para apoiar decisões e gerar valor
+          nos ambientes onde o trabalho acontece.
+        </p>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="titulo">
+        <small>O propósito</small>
+        <h2>Campo conectado. Operação contínua.</h2>
+        <p>
+          O OFF foi concebido para apoiar atividades de campo,
+          organizar registros e transformar informações operacionais
+          em conhecimento útil para pessoas, empresas e instituições.
+        </p>
+      </div>
+
+      <div class="principios">
+        <article class="card">
+          <div class="icone">📍</div>
+          <h3>Contexto territorial</h3>
+          <p>
+            Informações relacionadas ao lugar, às pessoas e às
+            atividades realizadas no território.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icone">📋</div>
+          <h3>Operação organizada</h3>
+          <p>
+            Registros, tarefas, rotas e acompanhamento das
+            atividades de campo.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icone">🔎</div>
+          <h3>Evidências confiáveis</h3>
+          <p>
+            Histórico de registros, ocorrências e informações
+            que apoiam a análise e a tomada de decisão.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="camadas" id="estrutura">
+      <div class="camadas-conteudo">
+        <div class="titulo">
+          <small>Arquitetura OFF</small>
+          <h2>Uma estrutura integrada</h2>
+          <p>
+            Os módulos compartilham uma base comum, mantendo
+            suas funções específicas e seus controles de acesso.
+          </p>
+        </div>
+
+        <div class="camada">
+          <div class="numero">1</div>
+          <div>
+            <h3>Operação</h3>
+            <p>Atividades, registros, rotas e execução em campo.</p>
+          </div>
+        </div>
+
+        <div class="camada">
+          <div class="numero">2</div>
+          <div>
+            <h3>Dados e evidências</h3>
+            <p>Informações, documentos, histórico e rastreabilidade.</p>
+          </div>
+        </div>
+
+        <div class="camada">
+          <div class="numero">3</div>
+          <div>
+            <h3>Comunicação e orientação</h3>
+            <p>Alertas, instruções e comunicação entre envolvidos.</p>
+          </div>
+        </div>
+
+        <div class="camada">
+          <div class="numero">4</div>
+          <div>
+            <h3>Inteligência territorial</h3>
+            <p>Contexto, indicadores e análise das operações.</p>
+          </div>
+        </div>
+
+        <div class="camada">
+          <div class="numero">5</div>
+          <div>
+            <h3>Governança</h3>
+            <p>Segurança, permissões, privacidade e gestão da plataforma.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao" id="modulos">
+      <div class="titulo">
+        <small>Ecossistema</small>
+        <h2>Módulos conectados</h2>
+        <p>
+          O OFF pode atender diferentes operações por meio
+          de módulos integrados à mesma plataforma.
+        </p>
+      </div>
+
+      <div class="modulos">
+        <article class="modulo">
+          <h3>OFF — Rastreabilidade do Leite</h3>
+          <p>
+            Acompanhamento de produtores, propriedades, tanques,
+            coletas, qualidade e evidências.
+          </p>
+          <span>CPSI Toledo</span>
+        </article>
+
+        <article class="modulo">
+          <h3>OFF — Vendas</h3>
+          <p>
+            Catálogo, clientes, vendas e propostas para
+            operações comerciais em campo.
+          </p>
+          <span>Operação comercial</span>
+        </article>
+
+        <article class="modulo">
+          <h3>OFF — Inteligência Territorial</h3>
+          <p>
+            Informações geográficas, ocorrências, indicadores
+            e contexto das atividades no território.
+          </p>
+          <span>Gestão territorial</span>
+        </article>
+
+        <article class="modulo">
+          <h3>OFF — Orientação Operacional</h3>
+          <p>
+            Instruções visuais, procedimentos, checklists
+            e apoio ao trabalho realizado.
+          </p>
+          <span>Campo e indústria</span>
+        </article>
+
+        <article class="modulo">
+          <h3>OFF — Evidências</h3>
+          <p>
+            Registros de atividades, fotos, documentos,
+            ocorrências e histórico verificável.
+          </p>
+          <span>Base comum</span>
+        </article>
+
+        <article class="modulo">
+          <h3>OFF — Comunicação</h3>
+          <p>
+            Informações, alertas e orientações direcionadas
+            aos diferentes participantes.
+          </p>
+          <span>Base comum</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="destaque" id="offline">
+      <div class="destaque-card">
+        <h2>O campo não pode parar.</h2>
+        <p>
+          A arquitetura OFF prioriza a continuidade da operação
+          mesmo sem internet. Os registros podem ser armazenados
+          no dispositivo e sincronizados quando a conexão estiver
+          disponível.
+        </p>
+
+        <a class="botao" href="index.html">Voltar ao início</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>OFF</strong> — Campo Conectado<br>
+    Decisões que Geram Valor<br>
+    <span>© 2026 OFF Plataforma</span>
+  </footer>
+
+</body>
+</html>
